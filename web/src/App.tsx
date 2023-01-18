@@ -9,6 +9,7 @@ function App() {
       <Habit completed={5} />
       <Habit completed={46} />
       <Habit completed={12} />
+      <Habit completed={24} />
     </div>
   );
 }
