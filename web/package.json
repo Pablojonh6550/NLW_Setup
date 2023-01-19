@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
+    "phosphor-react": "^1.4.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
