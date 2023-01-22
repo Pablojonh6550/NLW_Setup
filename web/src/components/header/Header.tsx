@@ -1,6 +1,7 @@
 import logo from "../../assets/logo.svg";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Plus, X } from "phosphor-react";
+import { NewHabitForms } from "../HabitForms/NewHabitForm";
 
 export function Header() {
   return (
@@ -21,6 +22,10 @@ export function Header() {
               <Dialog.Close className="absolute right-6 top-6 p-1 bg-violet-500 rounded-md text-zinc-800 hover:text-zinc-200">
                 <X size={24} arial-label="Fechar" />
               </Dialog.Close>
+              <Dialog.Title className="text-3xl leading-tight font-extrabold">
+                Criar Hábito
+              </Dialog.Title>
+              <NewHabitForms />
             </Dialog.Content>
           </Dialog.Portal>
         </Dialog.Root>
