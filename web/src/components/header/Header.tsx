@@ -1,7 +1,7 @@
 import logo from "../../assets/logo.svg";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Plus, X } from "phosphor-react";
-import { NewHabitForms } from "../HabitForms/NewHabitForm";
+import { NewHabitForms } from "../habitForms/NewHabitForm";
 
 export function Header() {
   return (
