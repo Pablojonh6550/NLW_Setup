@@ -29,13 +29,13 @@ export function HabitDay(props: HabitDayProps) {
         })}
       />
       <Popover.Portal>
-        <Popover.Content className="min-w-[320px] p-6 rounded-2xl bg-zinc-900 flex flex-col">
+        <Popover.Content className="min-w-[320px] p-6 rounded-2xl bg-zinc-900 flex flex-col border border-violet-600">
           <span className="font-semibold text-zinc-400">Dia da Semana</span>
           <span className="mt-1 font-extrabold leading-tight text-3xl">
             Data
           </span>
           <ProgressBar progress={completedPercentage} />
-          <Popover.Arrow height={8} width={16} className="fill-zinc-900" />
+          <Popover.Arrow height={8} width={16} className="fill-violet-600" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>
