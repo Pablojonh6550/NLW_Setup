@@ -71,11 +71,11 @@ export async function appRoutes(app: FastifyInstance) {
 
   // Completar hábito no dia / Checar hábitos do dia
   app.patch("/habits/:id/toggle", async (request) => {
-    const toogleHabitParams = z.object({
+    const toggleHabitParams = z.object({
       id: z.string().uuid(),
     });
 
-    const { id } = toogleHabitParams.parse(request.params);
+    const { id } = toggleHabitParams.parse(request.params);
 
     const today = dayjs().startOf("day").toDate();
 
@@ -101,9 +101,8 @@ export async function appRoutes(app: FastifyInstance) {
         },
       },
     });
-
+    // remover checked do hábito
     if (dayHabit) {
-      // remover checked do hábito
       await prisma.dayHabit.delete({
         where: {
           id: dayHabit.id,
@@ -120,8 +119,8 @@ export async function appRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/sumary", async () => {
-    const sumary = await prisma.$queryRaw`
+  app.get("/summary", async () => {
+    const summary = await prisma.$queryRaw`
     SELECT 
     D.id, 
     D.date,
@@ -129,7 +128,7 @@ export async function appRoutes(app: FastifyInstance) {
       SELECT
         cast(count(*) as float)
       FROM day_habits DH
-      WHERE DH.day_id = DH.id
+      WHERE DH.day_id = D.id
      ) as completed,
     (
       SELECT
@@ -144,6 +143,6 @@ export async function appRoutes(app: FastifyInstance) {
     FROM days D
     `;
 
-    return sumary;
+    return summary;
   });
 }
